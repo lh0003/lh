@@ -26,7 +26,7 @@ public interface BookMapper {
 	@Select(" select * from tb_book where remark=#{remark}")
 	List<Book> findsome(@Param("remark") String remark);
 	
-	@Insert("insert into tb_evaluation(book_id,evaluation,user_id,image) values(#{book_id},#{evaluation},#{user_id},#{image})")
-	void insert(Integer book_id,Integer user_id,String image,String evaluation);
+	@Insert("insert into tb_evaluation(book_id,user_id,image,evaluation) values(#{book_id},#{user_id},#{image},#{evaluation})")
+	void insert(@Param("book_id")Integer book_id,@Param("user_id")Integer user_id,@Param("image")String image,@Param("evaluation")String evaluation);
 	
 }

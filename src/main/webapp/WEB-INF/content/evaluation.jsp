@@ -41,7 +41,7 @@
 <input type=file name="image" id="image" onchange="javascript:setImagePreview();"> 
 <p><div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div></p>
 <p><div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div></p>
-<input type="hidden" value="${request.Book_id() }" id="book_id" name="book_id "/>
+<input type="hidden" value="${book_id}" id="book_id" name="book_id"/>
 <input type="hidden" value="${sessionScope.user.id }" id="user_id" name="user_id"/>
 <button>提交评价</button>
 </form>

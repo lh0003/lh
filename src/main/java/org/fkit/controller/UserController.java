@@ -1,11 +1,12 @@
 package org.fkit.controller;
 
-import java.util.Properties;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.fkit.domain.User;
 import org.fkit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -79,6 +81,48 @@ public class UserController {
 	
 		return mv;
 }
+	@RequestMapping(value="/forget",method = RequestMethod.POST)
+	public ModelAndView find(
+		String loginname,String email,
+		ModelAndView mv,
+		HttpSession session,HttpServletRequest request,HttpServletResponse response)throws Exception{	
+			
+	    User user=userService.find(loginname,email);
+
+		if(user!=null){
+			
+			StringBuffer url = new StringBuffer();
+			StringBuilder builder = new StringBuilder();
+			// 正文
+			builder.append(
+					"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /></head><body>");
+			url.append("<font color='red'>" + user + "</font>");
+			builder.append("<br/><br/>");
+			builder.append("<div>" + url + "</div>");
+			builder.append("</body></html>");
+			SimpleEmail sendemail = new SimpleEmail();
+			sendemail.setHostName("smtp.163.com ");// 指定要使用的邮件服务器
+			sendemail.setAuthentication("lh00003@163.com", "lh1003");// 使用163的邮件服务器需提供在163已注册的用户名、密码
+			sendemail.setCharset("UTF-8");
+			try {
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(email);
+				sendemail.setFrom("lh00003@163.com");
+				sendemail.setSubject("找回密码");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			} catch (EmailException e) {
+				e.printStackTrace();
+			}
+			response.getWriter().println("你的密码为已成功发送到邮箱");	
+			mv.setViewName("login");
+		}else{
+			response.getWriter().println("获取密码失败");
+		}
+	    return null;
+	}
+
 //	
 //	@RequestMapping(value="/forget")
 //	public String forget(String loginname,String email,HttpServletRequest request){

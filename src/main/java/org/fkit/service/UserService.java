@@ -18,6 +18,8 @@ public interface UserService {
 	int addUser(User user);
 	int updateUser(User user);
 //	void updateUserPassword(String loginname, String password);
+	User find(String loginname, String email);
+
 	
 
 }

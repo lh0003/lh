@@ -20,6 +20,7 @@ public interface BookService {
 
 	List<Book> getSome(String remark);
 	
-	void insert(Integer book_id,Integer user_id,String image,String evaluation);
+
+	void evaluate(Integer book_id, Integer user_id, String image, String evaluation);
 
 }

@@ -40,10 +40,12 @@ public class OrderController {
 }
 	
 	@RequestMapping(value="/ensure")
-	public String ensure(ModelAndView mv,
+	public String ensure(Model model,
 			 HttpSession session,HttpServletRequest request,Integer book_id,Integer user_id){
 		String state2="已完成";
 		orderService.ensureOrder(state2,book_id,user_id);
+		model.addAttribute("book_id",book_id);
+		System.out.print(book_id);
 		return"evaluation";
 	}
 }

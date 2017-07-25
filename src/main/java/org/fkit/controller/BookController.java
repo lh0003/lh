@@ -51,7 +51,7 @@ public class BookController {
 
 	 @RequestMapping(value="/evaluate")
 	public String evaluate( ModelAndView mv ,HttpSession session,HttpServletRequest request,Integer book_id,Integer user_id,String image,String evaluation) {
-		bookService.insert(book_id,user_id,image,evaluation);
+		bookService.evaluate(book_id,user_id,image,evaluation);
 		mv.addObject("message", "评价成功!");
 		return "main";
 	}
