@@ -26,7 +26,7 @@
 
 <table border="1">
 	<tr>
-		<th>图片</th><th>商品编号</th><th>商品名</th><th>库存量</th><th>生产厂家</th><th>价格</th><th>生产日期</th><th>店铺id</th><th>加入购物车</th><th>收藏</th>
+		<th>图片</th><th>商品编号</th><th>商品名</th><th>库存量</th><th>生产厂家</th><th>价格</th><th>生产日期</th><th>店铺id</th><th>加入购物车</th><th>收藏</th><th>评价</th>
 	</tr>
 	<c:forEach items="${requestScope.book_list }" var="book">
 	<form action="addcart" method="get">

@@ -21,6 +21,8 @@ public interface BookService {
 	List<Book> getSome(String remark);
 	
 
-	void evaluate(Integer book_id, Integer user_id, String image, String evaluation);
+	void evaluate(Integer book_id, Integer user_id, String image, String evaluation, String g1, String g2, String g3);
+
+
 
 }

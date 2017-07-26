@@ -30,7 +30,7 @@
 		</div>
 		<div class="col-md-6">
 			 <span class="label label-default">您对商品的评价是：</span><br/><br><br>
-物流服务打分：<input id="input-21a" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xl" name="g1" >
+物流服务打分：<input id="g1" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xl" name="g1" >
 	<br>
 卖家服务打分：<input id="input-21a" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xl" name="g2">
 	<br>
@@ -42,6 +42,9 @@
 <p><div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div></p>
 <p><div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div></p>
 <input type="hidden" value="${book_id}" id="book_id" name="book_id"/>
+<input type="hidden" value="${g1}" id="g1" name="g1"/>
+<input type="hidden" value="${g2}" id="g1" name="g2"/>
+<input type="hidden" value="${g3}" id="g1" name="g3"/>
 <input type="hidden" value="${sessionScope.user.id }" id="user_id" name="user_id"/>
 <button>提交评价</button>
 </form>

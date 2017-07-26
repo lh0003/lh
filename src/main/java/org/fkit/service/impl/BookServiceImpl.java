@@ -59,10 +59,10 @@ public  class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void evaluate(Integer book_id,Integer user_id,String image,String evaluation) {
+	public void evaluate(Integer book_id,Integer user_id,String image,String evaluation, String g1, String g2, String g3) {
 		// TODO Auto-generated method stub
-		bookMapper.insert(book_id,user_id,image,evaluation);
+		bookMapper.insert(book_id,user_id,image,evaluation,g1,g2,g3);
 		
 	}
-	
+
 }

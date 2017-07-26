@@ -50,8 +50,8 @@ public class BookController {
 	}
 
 	 @RequestMapping(value="/evaluate")
-	public String evaluate( ModelAndView mv ,HttpSession session,HttpServletRequest request,Integer book_id,Integer user_id,String image,String evaluation) {
-		bookService.evaluate(book_id,user_id,image,evaluation);
+	public String evaluate( ModelAndView mv ,HttpSession session,HttpServletRequest request,Integer book_id,Integer user_id,String image,String evaluation,String g1,String g2,String g3) {
+		bookService.evaluate(book_id,user_id,image,evaluation,g1,g2,g3);
 		mv.addObject("message", "评价成功!");
 		return "main";
 	}
